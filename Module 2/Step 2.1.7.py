@@ -35,9 +35,6 @@ n = int(input())
 for _ in range(n):
     add_class(input().split())
 
-'''classes = {'ArithmeticError': [], 'ZeroDivisionError': ['ArithmeticError'], 'OSError': [],
-           'FileNotFoundError': ['OSError'], 'ConnectionError': ['OSError'], 'BrokenPipeError': ['ConnectionError']}
-print(classes)'''
 
 m = int(input())
 errors = []
@@ -45,21 +42,14 @@ for _ in range(m):
     errors.append(input())
 
 
-'''errors = ['ZeroDivisionError', 'OSError', 'ArithmeticError', 'FileNotFoundError',
-          'ConnectionError', 'BrokenPipeError']
-print(errors)'''
-
 m = len(errors)
 res = [False for _ in range(m)]
 
 
 for i in range(m):
     for j in range(i+1, m):
-        #print(i, j, errors[i], errors[j], is_parent(errors[i], [errors[j]]))
         if is_parent(errors[i], [errors[j]]) == "Yes":
             res[j] = True
-#            print(errors[j])
-#print(*res)
 
 for i in range(m):
     if res[i]:
