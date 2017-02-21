@@ -30,19 +30,22 @@ import unittest
 # b = 'a'
 # 4
 
-s, a, b = input(), input(), input()
 
-before = s.count(a)
-if before == 0:
-    print(0)
-else:
-    s1 = s.replace(a, b)
-    after = s1.count(a)
-    if before < after or (before == after and len(s1) >= len(s)):
-        print('Impossible')
+def strings_methods(s: str, a: str, b: str):
+    before = s.count(a)
+    if before == 0:
+        return 0
     else:
-        count = 0
-        while a in s:
-            s = s.replace(a, b)
-            count += 1
-        print(count)
+        s1 = s.replace(a, b)
+        after = s1.count(a)
+        if before < after or (before == after and len(s1) >= len(s)):
+            return 'Impossible'
+        else:
+            count = 0
+            while a in s:
+                s = s.replace(a, b)
+                count += 1
+            return count
+
+s, a, b = input(), input(), input()
+print(strings_methods(s, a, b))
