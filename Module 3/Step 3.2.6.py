@@ -1,34 +1,4 @@
-import unittest
-
-# s = 'ababa'
-# a = 'a'
-# b = 'b'
-# 1
-
-# s = 'ababa'
-# a = 'b'
-# b = 'a'
-# 1
-
-# s = 'ababa'
-# a = 'c'
-# b = 'c'
-# 0
-
-# s = 'ababac'
-# a = 'c'
-# b = 'c'
-# Impossible
-
-# s = 'abbbb'
-# a = 'a'
-# b = 'ab'
-# Impossible
-
-# s = 'abbbb'
-# a = 'ab'
-# b = 'a'
-# 4
+from unittest import TestCase
 
 
 def strings_methods(s: str, a: str, b: str):
@@ -47,5 +17,28 @@ def strings_methods(s: str, a: str, b: str):
                 count += 1
             return count
 
-s, a, b = input(), input(), input()
-print(strings_methods(s, a, b))
+# s, a, b = input(), input(), input()
+# print(strings_methods(s, a, b))
+
+
+class TestStringsMethods(TestCase):
+    def test_1(self):
+        self.assertEqual(strings_methods('ababa', 'a', 'b'), 1)
+
+    def test_2(self):
+        self.assertEqual(strings_methods('ababa', 'b', 'a'), 1)
+
+    def test_3(self):
+        self.assertEqual(strings_methods('ababa', 'c', 'c'), 0)
+
+    def test_4(self):
+        self.assertEqual(strings_methods('ababac', 'c', 'c'), 'Impossible')
+
+    def test_5(self):
+        self.assertEqual(strings_methods('abbbb', 'a', 'ab'), 'Impossible')
+
+    def test_6(self):
+        self.assertEqual(strings_methods('abbbb', 'ab', 'a'), 4)
+
+if __name__ == '__main__':
+    unittest.main()
